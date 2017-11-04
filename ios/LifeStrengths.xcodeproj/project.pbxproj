@@ -44,7 +44,6 @@
 		93A4AD84F24E4EFDA423F496 /* libA0Auth0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CB3BF82C349EAA1C66D8B /* libA0Auth0.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C658D6B90AB44EEEA04A803E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DE37DB01D846929FDB5782 /* libz.tbd */; };
-		D807B0700CCE489991880619 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3287C17329144A4693287D21 /* libRNGoogleSignin.a */; };
 		F23D74A4B070463BBB3FC11D /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F933AB728E4FF88B3A3199 /* SafariServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -397,7 +396,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				93A4AD84F24E4EFDA423F496 /* libA0Auth0.a in Frameworks */,
-				D807B0700CCE489991880619 /* libRNGoogleSignin.a in Frameworks */,
 				C658D6B90AB44EEEA04A803E /* libz.tbd in Frameworks */,
 				F23D74A4B070463BBB3FC11D /* SafariServices.framework in Frameworks */,
 				6053E833BBC541DF8CF9D509 /* SystemConfiguration.framework in Frameworks */,
