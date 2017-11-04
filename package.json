@@ -11,7 +11,9 @@
 		"pubsub-js": "^1.5.7",
 		"react": "16.0.0",
 		"react-native": "0.50.1",
-		"react-native-auth0": "^1.2.1"
+		"react-native-auth0": "^1.2.1",
+		"react-native-vector-icons": "^4.4.2",
+		"react-navigation": "^1.0.0-beta.19"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
