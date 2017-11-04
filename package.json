@@ -8,9 +8,11 @@
 	},
 	"dependencies": {
 		"firebase": "^4.6.1",
+		"pubsub-js": "^1.5.7",
 		"react": "16.0.0",
 		"react-native": "0.50.1",
-		"react-native-auth0": "^1.2.1"
+		"react-native-auth0": "^1.2.1",
+		"react-native-google-signin": "^0.12.0"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
