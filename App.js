@@ -5,64 +5,43 @@
  */
 
 import React, {Component} from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View,
-    Button
-} from 'react-native';
-import FirebaseApp from './lib/Firebase';
-import * as Authentication from './lib/Authentication';
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {View, Text} from 'react-native';
+import RootTabs from './RootTabs';
 
 export default class App extends Component<{}> {
-    async login() {
-        const profile = await Authentication.login();
+    constructor(props) {
+        super(props);
 
-        if (profile) {
-            await FirebaseApp.database().ref('/test').push({'foo': 'bar'});
-        }
+        this.state = {
+            hasLoggedIn: false,
+            isAuthenticating: false,
+            profile: null
+        };
+    }
+
+    async componentDidMount() {
+        //PubSub.subscribe(Authentication.LOGOUT, this.onLogout.bind(this));
+    }
+
+    onLogout() {
+        this.setState(() => {
+            return {
+                profile: null,
+                hasLoggedIn: false,
+                isAuthenticating: false
+            };
+        });
     }
 
     render() {
+        /*if (!this.state.hasLoggedIn) {
+            return <View style={{flex: 1}}/>;
+        }*/
+
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Button
-                    onPress={this.login.bind(this)}
-                    title="Login"
-                    color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
-                />
+            <View style={{flex: 1}}>
+                <RootTabs/>
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
