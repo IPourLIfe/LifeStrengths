@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, TabBarTop} from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './pages/Home';
@@ -74,4 +74,16 @@ export default RootTabs = TabNavigator({
             ),
         },
     },
+}, {
+    tabBarOptions: {
+        showIcon: true,
+        showLabel: false,
+        style: {
+            backgroundColor: '#EEE',
+            height: 60
+        },
+        inactiveTintColor: '#000',
+        activeTintColor: '#0097A7',
+        pressOpacity: 1
+    }
 });
