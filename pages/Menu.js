@@ -29,32 +29,64 @@ const MenuButton = (props) => (
     </Touchable>
 );
 
-export default Menu = () => {
-    return (
-        <View style={{flex: 1, backgroundColor: '#EEE'}}>
-            <View style={{backgroundColor: '#00BCD4', height: 170, padding: 20, paddingTop: 30, width: '100%'}}>
+export default class Menu extends Component<{}> {
+    constructor(props) {
+        super(props);
+
+        this.state = {profile: null};
+    }
+
+    async componentWillMount() {
+        const profile = await Authentication.getProfile();
+
+        this.setState(() => {
+            return {profile};
+        });
+    }
+
+    getProfileHeader() {
+        if(!this.state.profile) {
+            return null;
+        }
+
+        return (
+            <View style={{backgroundColor: '#00BCD4', height: 160, padding: 20, paddingTop: 30, width: '100%'}}>
                 <Image style={{
                     width: 64,
                     height: 64,
                     borderRadius: 64 / 2,
-                    marginBottom: 30
+                    marginBottom: 20
                 }}
-                       source={{uri: 'https://picsum.photos/256/256.jpg?random'}}/>
+                       source={{uri: this.state.profile.picture}}/>
                 <Text style={{
                     color: '#fff',
                     fontWeight: 'bold',
                     fontSize: 16
-                }}>Yolanda Thorton</Text>
+                }}>{this.state.profile.name}</Text>
             </View>
-            <MenuButton title='I Need Help' iconName='alert-decagram' iconColor='red' onPress={() => {}}/>
-            <MenuButton title='Profile' iconName='account' onPress={() => {}}/>
-            <MenuButton title='Wish List' onPress={() => {}}>
-                <SimpleLineIcons name='magic-wand' style={{marginLeft: 5}} size={30}/>
-            </MenuButton>
-            <MenuButton title='Settings' iconName='settings' onPress={() => {}}/>
-            <MenuButton title='Log Out' onPress={() => {Authentication.logout()}}>
-                <MaterialCommunityIcons name='logout' style={{marginLeft: 5}} size={38}/>
-            </MenuButton>
-        </View>
-    );
-};
+        );
+    }
+
+    render() {
+        return (
+            <View style={{flex: 1, backgroundColor: '#EEE'}}>
+                {this.getProfileHeader()}
+                <MenuButton title='I Need Help' iconName='alert-decagram' iconColor='red' onPress={() => {
+                }}/>
+                <MenuButton title='Profile' iconName='account' onPress={() => {
+                }}/>
+                <MenuButton title='Wish List' onPress={() => {
+                }}>
+                    <SimpleLineIcons name='magic-wand' style={{marginLeft: 5}} size={30}/>
+                </MenuButton>
+                <MenuButton title='Settings' iconName='settings' onPress={() => {
+                }}/>
+                <MenuButton title='Log Out' onPress={() => {
+                    Authentication.logout()
+                }}>
+                    <MaterialCommunityIcons name='logout' style={{marginLeft: 5}} size={38}/>
+                </MenuButton>
+            </View>
+        );
+    }
+}
