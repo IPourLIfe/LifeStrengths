@@ -39,7 +39,6 @@
 		2DCD954D1E0B4F2C00145EB5 /* LifeStrengthsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LifeStrengthsTests.m */; };
 		45F6262995474BAB8B018FC8 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FCF591DE405D8AFEB01C /* Octicons.ttf */; };
 		474C7E92880C43D8AC9CDEB3 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D17997F99798496DA469AEF7 /* MaterialIcons.ttf */; };
-		590E5593A646D4B03E79E393 /* libPods-LifeStrengths-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F2D78F6BA73BDB031A2A57 /* libPods-LifeStrengths-tvOSTests.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6053E833BBC541DF8CF9D509 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF8FEE9B9A5487887590D16 /* SystemConfiguration.framework */; };
 		618F161A65AF4BEAB4F97BBD /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DF9F16281E9490A85CE3AC0 /* Zocial.ttf */; };
@@ -384,10 +383,8 @@
 		CFDCCA33F98924E944BA3859 /* libPods-LifeStrengths.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifeStrengths.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17997F99798496DA469AEF7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D5DA8D58888F4187B0C91308 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		DC1021C6064DAFC3B992EB05 /* Pods-LifeStrengths-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeStrengths-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeStrengths-tvOSTests/Pods-LifeStrengths-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F21DD1D11D4146BDBBA429B1 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F7D850AF4B7643B0BDDE3A23 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
-		FF382D4AF74BF4A5B81F984C /* Pods-LifeStrengths-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeStrengths-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeStrengths-tvOSTests/Pods-LifeStrengths-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,7 +442,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				590E5593A646D4B03E79E393 /* libPods-LifeStrengths-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,8 +677,6 @@
 			children = (
 				31E107ECEEC4B020D1AC5648 /* Pods-LifeStrengths.debug.xcconfig */,
 				568924CA90C25C9407C892C3 /* Pods-LifeStrengths.release.xcconfig */,
-				DC1021C6064DAFC3B992EB05 /* Pods-LifeStrengths-tvOSTests.debug.xcconfig */,
-				FF382D4AF74BF4A5B81F984C /* Pods-LifeStrengths-tvOSTests.release.xcconfig */,
 				6ABF497C1C83A6C81D544FFE /* Pods-LifeStrengthsTests.debug.xcconfig */,
 				505ED7CAD99C76D607F21BB6 /* Pods-LifeStrengthsTests.release.xcconfig */,
 			);
@@ -788,12 +782,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "LifeStrengths-tvOSTests" */;
 			buildPhases = (
-				3954D62C44BFD16DB8B5242C /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
-				41C3CCBCB5BD5E6468AD9291 /* [CP] Embed Pods Frameworks */,
-				16916CB2FAB31981B5FE96E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1233,13 +1224,13 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		16916CB2FAB31981B5FE96E8 /* [CP] Copy Pods Resources */ = {
+		1EA0EB4EAC79A72F9DBABC64 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LifeStrengths-tvOSTests/Pods-LifeStrengths-tvOSTests-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-LifeStrengths/Pods-LifeStrengths-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
@@ -1251,25 +1242,6 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifeStrengths-tvOSTests/Pods-LifeStrengths-tvOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1EA0EB4EAC79A72F9DBABC64 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LifeStrengths/Pods-LifeStrengths-resources.sh",
-				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1312,24 +1284,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		3954D62C44BFD16DB8B5242C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LifeStrengths-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3B9BB30D78F05C5917B1A4EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1346,21 +1300,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		41C3CCBCB5BD5E6468AD9291 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifeStrengths-tvOSTests/Pods-LifeStrengths-tvOSTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5E913EF188A9070BFDB3975C /* [CP] Embed Pods Frameworks */ = {
@@ -1655,7 +1594,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC1021C6064DAFC3B992EB05 /* Pods-LifeStrengths-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1682,7 +1620,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF382D4AF74BF4A5B81F984C /* Pods-LifeStrengths-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

@@ -7,17 +7,24 @@ target 'LifeStrengths' do
 
   # Pods for LifeStrengths
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  pod 'React', :path => '../node_modules/react-native'
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+                                                          'Core',
+                                                          'RCTActionSheet',
+                                                          'RCTAnimation',
+                                                          'RCTGeolocation',
+                                                          'RCTImage',
+                                                          'RCTLinkingIOS',
+                                                          'RCTNetwork',
+                                                          'RCTSettings',
+                                                          'RCTText',
+                                                          'RCTVibration',
+                                                          'RCTWebSocket',
+                                                          'BatchedBridge'
+                                                          ]
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'LifeStrengths-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
-    pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
-  end
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
   target 'LifeStrengthsTests' do
     inherit! :search_paths
