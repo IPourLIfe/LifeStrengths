@@ -37,7 +37,7 @@ export default class App extends Component<{}> {
         super();
         this.state = {
             messages: [],
-            profile: {sub:"asdjfkajsdf"},
+            profile: {sub: "asdjfkajsdf"},
             typingText: "a"
         };
         this._renderItem = this._renderItem.bind(this)
@@ -69,8 +69,8 @@ export default class App extends Component<{}> {
                 }
             });
 //            messageDb.off()
-                this.setState({messages: newMessages});
-                this.refs.scrollView.scrollTo({x:0, y:0, animated:true});
+            this.setState({messages: newMessages});
+            this.refs.scrollView.scrollTo({x: 0, y: 0, animated: true});
 
         })
     }
@@ -99,7 +99,7 @@ export default class App extends Component<{}> {
             });
 
             this.setState({messages: this.state.messages.concat(newMessages)});
-            this.refs.scrollView.scrollTo({x:0, y:0, animated:true});
+            this.refs.scrollView.scrollTo({x: 0, y: 0, animated: true});
         })
     }
 
@@ -133,7 +133,15 @@ export default class App extends Component<{}> {
         const {inProgress, messages, error} = this.state.messages;
 
         return (
-            <View style={{flex: 1}}>
+            <View style={{
+                flex: 1,
+                shadowColor: 'black',
+                shadowOpacity: 0.3,
+                shadowRadius: 2,
+                shadowOffset: {
+                    width: -1,
+                }
+            }}>
                 <View style={{
                     height: 75,
                     alignContent: 'center',
@@ -152,11 +160,11 @@ export default class App extends Component<{}> {
                 <View style={{height: 80, padding: 10, borderTopWidth: 1, borderTopColor: '#DDD'}}>
                     <Text>Your Message</Text>
                     <TextInput style={{height: 40}}
-                        onSubmitEditing={this.handleEditComplete.bind(this)}
+                               onSubmitEditing={this.handleEditComplete.bind(this)}
                                ref="textInput"
                                onChangeText={(text) => this.setState({typingText: text})}
-                        returnKeyType="send"
-                        blurOnSubmit={true}
+                               returnKeyType="send"
+                               blurOnSubmit={true}
                     />
                     <View style={{backgroundColor: '#FFB100', height: 3, width: '100%'}}/>
                 </View>
