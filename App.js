@@ -4,9 +4,12 @@
  * @flow
  */
 
+import PubSub from 'pubsub-js';
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import RootTabs from './RootTabs';
+import Login from './Login';
+import * as Authentication from './lib/Authentication';
 
 export default class App extends Component<{}> {
     constructor(props) {
@@ -14,29 +17,45 @@ export default class App extends Component<{}> {
 
         this.state = {
             hasLoggedIn: false,
-            isAuthenticating: false,
             profile: null
         };
     }
 
     async componentDidMount() {
-        //PubSub.subscribe(Authentication.LOGOUT, this.onLogout.bind(this));
+        PubSub.subscribe(Authentication.LOGIN_SUCCESS, this.onLogin.bind(this));
+        PubSub.subscribe(Authentication.LOGOUT, this.onLogout.bind(this));
+
+        const profile = await Authentication.getProfile();
+
+        if(profile) {
+            this.onLogin();
+        }
+    }
+
+    async onLogin() {
+        const profile = await Authentication.getProfile();
+
+        this.setState(() => {
+            return {
+                profile,
+                hasLoggedIn: true
+            };
+        });
     }
 
     onLogout() {
         this.setState(() => {
             return {
                 profile: null,
-                hasLoggedIn: false,
-                isAuthenticating: false
+                hasLoggedIn: false
             };
         });
     }
 
     render() {
-        /*if (!this.state.hasLoggedIn) {
-            return <View style={{flex: 1}}/>;
-        }*/
+        if (!this.state.hasLoggedIn) {
+            return <Login/>;
+        }
 
         return (
             <View style={{flex: 1}}>

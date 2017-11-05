@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {View, Text, Image, Platform, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import * as Authentication from '../lib/Authentication';
 
 const Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
 
 const MenuButton = (props) => (
-    <Touchable style={{width: '100%', height: 60}} onPress={() => {
-    }}>
+    <Touchable style={{width: '100%', height: 60}} onPress={props.onPress}>
         <View style={{flex: 1, flexDirection: 'row'}}>
             <View style={{
                 width: 40,
@@ -46,13 +46,13 @@ export default Menu = () => {
                     fontSize: 16
                 }}>Yolanda Thorton</Text>
             </View>
-            <MenuButton title='I Need Help' iconName='alert-decagram' iconColor='red'/>
-            <MenuButton title='Profile' iconName='account'/>
-            <MenuButton title='Wish List'>
+            <MenuButton title='I Need Help' iconName='alert-decagram' iconColor='red' onPress={() => {}}/>
+            <MenuButton title='Profile' iconName='account' onPress={() => {}}/>
+            <MenuButton title='Wish List' onPress={() => {}}>
                 <SimpleLineIcons name='magic-wand' style={{marginLeft: 5}} size={30}/>
             </MenuButton>
-            <MenuButton title='Settings' iconName='settings'/>
-            <MenuButton title='Log Out'>
+            <MenuButton title='Settings' iconName='settings' onPress={() => {}}/>
+            <MenuButton title='Log Out' onPress={() => {Authentication.logout()}}>
                 <MaterialCommunityIcons name='logout' style={{marginLeft: 5}} size={38}/>
             </MenuButton>
         </View>
