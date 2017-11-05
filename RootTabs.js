@@ -28,7 +28,7 @@ export default RootTabs = TabNavigator({
             tabBarLabel: 'Messaging',
             tabBarIcon: ({tintColor, focused}) => (
                 <MaterialIcons
-                    name='chat'
+                    name='people'
                     size={26}
                     style={{color: tintColor}}
                 />
@@ -79,11 +79,18 @@ export default RootTabs = TabNavigator({
         showIcon: true,
         showLabel: false,
         style: {
-            backgroundColor: '#EEE',
-            height: 60
+            backgroundColor: '#FFF',
+            height: 60,
+            borderTopWidth: 0,
+            shadowColor: '#000',
+            shadowOffset: {
+                width: 0,
+                height: -2
+            },
+            shadowOpacity: 0.2
         },
-        inactiveTintColor: '#000',
-        activeTintColor: '#0097A7',
+        inactiveTintColor: '#0097A7',
+        activeTintColor: '#FFB100',
         pressOpacity: 1
     }
 });
