@@ -69,7 +69,7 @@ export default class Menu extends Component<{}> {
 
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: '#EEE'}}>
+            <View style={{flex: 1, backgroundColor: '#FFF'}}>
                 {this.getProfileHeader()}
                 <MenuButton title='I Need Help' iconName='alert-decagram' iconColor='red' onPress={() => {
                 }}/>

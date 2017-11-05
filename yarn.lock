@@ -3323,7 +3323,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -3441,6 +3441,10 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
+react-native-global-props@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-global-props/-/react-native-global-props-1.1.3.tgz#4ea66136b03e42ff93a4fed544576e1993be0d70"
+
 react-native-keyboard-spacer@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
@@ -3455,6 +3459,14 @@ react-native-maps@^0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.1.tgz#ab2236341fd984dac8864202ae55331bc262f60c"
 
+react-native-markdown-view@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-markdown-view/-/react-native-markdown-view-1.1.4.tgz#390fdbe2ececa92505572efe1911ec2c7fe8bc13"
+  dependencies:
+    prop-types "^15.5.10"
+    react-native-tabular-grid-markdown-view "0.1.x"
+    simple-markdown "0.3.x"
+
 react-native-material-kit@xinthink/react-native-material-kit:
   version "0.4.1"
   resolved "https://codeload.github.com/xinthink/react-native-material-kit/tar.gz/95b09803bb1674fba4fd1a4990e427ec4f5b8605"
@@ -3462,9 +3474,21 @@ react-native-material-kit@xinthink/react-native-material-kit:
     prop-types "^15.5.10"
     ramda "^0.24.1"
 
+react-native-pages@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-pages/-/react-native-pages-0.6.1.tgz#1c8c491b8096cca5441cd1e7133901e355768251"
+  dependencies:
+    prop-types "^15.5.9"
+
 react-native-tab-view@^0.0.70:
   version "0.0.70"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.70.tgz#1dd2ded32acd0cb6bfef38d26e53675db733b37b"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-tabular-grid-markdown-view@0.1.x:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-tabular-grid-markdown-view/-/react-native-tabular-grid-markdown-view-0.1.0.tgz#d5b3c291242373aa49ac60df43a017b39fc84338"
   dependencies:
     prop-types "^15.5.10"
 
@@ -3926,6 +3950,10 @@ shellwords@^0.1.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-markdown@0.3.x:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/simple-markdown/-/simple-markdown-0.3.1.tgz#de0d414301f87f1edfdcb8d18366c377545e42ed"
 
 simple-plist@^0.2.1:
   version "0.2.1"
