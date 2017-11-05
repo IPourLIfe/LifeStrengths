@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import GroupEvents from './home/GroupEvents';
 import Notifications from './home/Notifications';
 import {TabNavigator} from 'react-navigation';
@@ -36,6 +36,9 @@ const HomeTab = TabNavigator({
 
 export default Home = () => (
     <View style={{flex: 1}}>
+        <View style={{height: 40, width: '100%', backgroundColor: '#00BCD4', paddingTop: 20, paddingLeft: 20}}>
+            <Text style={{color: '#FFF', fontSize: 20, fontWeight: 'bold'}}>News</Text>
+        </View>
         <HomeTab style={{flex: 1}}/>
     </View>
 );
