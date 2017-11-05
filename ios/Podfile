@@ -26,6 +26,8 @@ target 'LifeStrengths' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'react-native-material-kit', :path => '../node_modules/react-native-material-kit'
+
   target 'LifeStrengthsTests' do
     inherit! :search_paths
     # Pods for testing

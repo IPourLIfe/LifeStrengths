@@ -37,6 +37,7 @@ const HomeTab = TabNavigator({
         }
     });
 
+
 export default Home = () => (
     <View style={{flex: 1}}>
         <View style={{height: 40, width: '100%', backgroundColor: '#00BCD4', paddingTop: 20, paddingLeft: 20}}>
