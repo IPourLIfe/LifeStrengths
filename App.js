@@ -40,7 +40,8 @@ export default class App extends Component<{}> {
 
         return (
             <View style={{flex: 1}}>
-                <RootTabs/>
+                <View style={{height: 20, width: '100%', backgroundColor: '#0097A7'}}/>
+                <RootTabs style={{flex: 1}}/>
             </View>
         );
     }

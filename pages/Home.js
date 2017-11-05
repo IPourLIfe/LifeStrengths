@@ -19,7 +19,7 @@ const HomeTab = TabNavigator({
         }
     },
     {
-        tabBarPosition: 'top',
+        ...TabNavigator.Presets.AndroidTopTabs,
         tabBarOptions: {
             tabStyle: {
                 flex: 1,
@@ -27,13 +27,15 @@ const HomeTab = TabNavigator({
                 justifyContent: 'center'
             },
             style: {
-                height: 75
+                paddingTop: 20,
+                height: 75,
+                backgroundColor: '#00BCD4'
             }
         }
     });
 
 export default Home = () => (
     <View style={{flex: 1}}>
-        <HomeTab/>
+        <HomeTab style={{flex: 1}}/>
     </View>
 );
