@@ -47,7 +47,7 @@ export default class App extends Component<{}> {
         var newMessages = []
         messageDb.orderByChild("date").limitToLast(20).on('value', snap => {
             snap.forEach((child) => {
-                console.log('Found a new message: ' + child.val().text);
+                // console.log('Found a new message: ' + child.val().text);
                 var inLoop = false
                 this.state.messages.forEach((message) => {
                     // console.log(message.key + " = " + child.key)
@@ -57,7 +57,7 @@ export default class App extends Component<{}> {
                     }
                 })
                 if (!inLoop) {
-                    console.log('added to messages')
+                    // console.log('added to messages')
                     newMessages.push({
                         orig_user_id: child.val().orig_user_id,
                         orig_user_name: child.val().orig_user_name,
