@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button, TouchableOpacity, TouchableNativeFeedback, Platform} from 'react-native';
+import {View, Text, Image, TouchableOpacity, TouchableNativeFeedback, Platform} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import * as Authentication from './lib/Authentication';
 
@@ -31,29 +31,46 @@ export default class Login extends Component<{}> {
         return (
             <View style={{flex: 1}}>
                 <LinearGradient colors={['#FFB100', '#00BCD4']}
-                                style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
-                    {this.state.showLoginButton ? (<Touchable style={{
-                        width: 300,
-                        alignSelf: 'center',
-                        height: 40,
-                        backgroundColor: '#FFB100',
-                        alignContent: 'center',
-                        justifyContent: 'center',
-                        shadowColor: '#000',
-                        shadowOffset: {
-                            width: 0,
-                            height: 4
-                        },
-                        shadowOpacity: 0.4
-                    }} onPress={this.login.bind(this)}>
-                        <Text style={{
-                            lineHeight: 40,
-                            fontWeight: 'bold',
-                            fontSize: 16,
-                            color: '#FFF',
-                            textAlign: 'center'
-                        }}>Login</Text>
-                    </Touchable>) : null}
+                                style={{flex: 1, paddingTop: 40, alignContent: 'center', justifyContent: 'center'}}>
+                    <Image source={require('./assets/ls-logo-white.png')} resizeMode='contain'
+                           style={{height: 236, width: 'auto', marginBottom: 50}}/>
+                    {this.state.showLoginButton ? (
+                        <View style={{
+                            flex: 1,
+                            alignContent: 'center',
+                            justifyContent: 'flex-start'
+                        }}>
+                            <Touchable style={{
+                                width: 300,
+                                height: 'auto',
+                                margin: 'auto',
+                                alignSelf: 'center',
+                                backgroundColor: '#FFB100',
+                                alignContent: 'center',
+                                justifyContent: 'center',
+                                shadowColor: '#000',
+                                shadowOffset: {
+                                    width: 0,
+                                    height: 4
+                                },
+                                shadowOpacity: 0.4
+                            }} onPress={this.login.bind(this)}>
+                                <Text style={{
+                                    lineHeight: 40,
+                                    fontWeight: 'bold',
+                                    fontSize: 16,
+                                    color: '#FFF',
+                                    textAlign: 'center'
+                                }}>Login</Text>
+                            </Touchable>
+                        </View>
+                    ) : null}
+                    <View style={{paddingBottom: 20}}>
+                        <Image source={require('./assets/ipl-logo-watermark.png')}
+                               style={{height: 100, width: 'auto', marginBottom: 10, resizeMode: 'contain'}}/>
+                        <Text style={{backgroundColor: 'transparent', textAlign: 'center'}}>Questions? Problems? Call
+                            (417) 581-3607</Text>
+                    </View>
                 </LinearGradient>
             </View>
         );
