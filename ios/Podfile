@@ -6,11 +6,16 @@ target 'LifeStrengths' do
   # use_frameworks!
 
   # Pods for LifeStrengths
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   target 'LifeStrengths-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+    pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   end
 
