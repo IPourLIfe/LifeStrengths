@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {View, Text, TouchableNativeFeedback, TouchableOpacity, Platform, ScrollView} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import MapView from 'react-native-maps';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import CustomHeader from '../lib/react-components/CustomNavHeader';
+import {MKButton} from 'react-native-material-kit';
 
 const Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
@@ -15,22 +16,22 @@ class LocationNavigateCard extends Component<{}> {
 
     render() {
         return (
-            <Touchable style={{
-                backgroundColor: '#FFF',
-                margin: 15,
-                marginLeft: 20,
-                marginRight: 20,
-                padding: 20,
-                shadowColor: '#000',
-                shadowOffset: {
-                    width: 0,
-                    height: 0
-                },
-                shadowRadius: 2,
-                shadowOpacity: 0.3
-            }} onPress={() => {
-                this.openPage()
-            }}>
+            <MKButton
+                style={{
+                    backgroundColor: '#FFF',
+                    margin: 15,
+                    marginLeft: 20,
+                    marginRight: 20,
+                    padding: 20,
+                }}
+                shadowRadius={3}
+                shadowOffset={{width: 0, height: 1}}
+                shadowOpacity={.4}
+                shadowColor='#000'
+                onPress={() => {
+                    this.openPage()
+                }}
+            >
                 <Text style={{
                     fontWeight: '500',
                     fontSize: 28,
@@ -41,7 +42,7 @@ class LocationNavigateCard extends Component<{}> {
                     fontSize: 16,
                     color: '#747474'
                 }}>{this.props.subtitle}</Text>
-            </Touchable>
+            </MKButton>
         );
     }
 }
@@ -74,26 +75,6 @@ class MyLocation extends Component<{}> {
         };
     }
 
-    getRegionForCoordinates(points) {
-        // init first point
-        let minX = points.latitude;
-        let maxX = points.latitude;
-        let minY = points.longitude;
-        let maxY = points.longitude;
-
-        const midX = (minX + maxX) / 2;
-        const midY = (minY + maxY) / 2;
-        const deltaX = (maxX - minX);
-        const deltaY = (maxY - minY);
-
-        return {
-            latitude: midX,
-            longitude: midY,
-            latitudeDelta: 0.03,
-            longitudeDelta: 0.03
-        };
-    }
-
     componentWillMount() {
         navigator.geolocation.getCurrentPosition(
             initialPosition => {
@@ -120,46 +101,18 @@ class MyLocation extends Component<{}> {
     }
 }
 
-class NavigateBack extends Component<{}> {
-    render() {
-        return (
-            <Touchable style={{marginRight: 20, marginTop: 2}} onPress={() => this.props.navigation.goBack()}>
-                <MaterialIcons style={{color: '#FFF'}} name='arrow-back' size={28}/>
-            </Touchable>
-        );
-    }
-}
-
-class Header extends Component<{}> {
-    constructor(props) {
-        super(props);
-
-    }
-
-    render() {
-        return (
-            <View style={{height: 60, backgroundColor: '#00BCD4', flexDirection: 'row', padding: 15}}>
-                {this.props.back ?
-                    <NavigateBack style={{width: 30, height: 30}} navigation={this.props.navigation}/> : null}
-                <Text
-                    style={{color: '#FFF', fontSize: 20, fontWeight: 'bold', lineHeight: 30}}>{this.props.title}</Text>
-            </View>
-        );
-    }
-}
-
 export default Location = StackNavigator(
     {
         LocationCards: {
             screen: LocationCards,
             navigationOptions: props => ({
-                header: () => (<Header title='Transportation' back={false} {...props}/>)
+                header: () => (<CustomHeader title='Transportation' back={false} {...props}/>)
             })
         },
         MyLocation: {
             screen: MyLocation,
             navigationOptions: props => ({
-                header: () => (<Header title='My Location' back={true} {...props}/>)
+                header: () => (<CustomHeader title='My Location' back={true} {...props}/>)
             })
         },
     }, {

@@ -13,10 +13,13 @@
 		"react": "16.0.0",
 		"react-native": "0.50.1",
 		"react-native-auth0": "^1.2.1",
+		"react-native-global-props": "^1.1.3",
 		"react-native-keyboard-spacer": "^0.4.1",
 		"react-native-linear-gradient": "^2.3.0",
 		"react-native-maps": "^0.17.1",
+		"react-native-markdown-view": "^1.1.4",
 		"react-native-material-kit": "xinthink/react-native-material-kit",
+		"react-native-pages": "^0.6.1",
 		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.19"
 	},
@@ -28,5 +31,10 @@
 	},
 	"jest": {
 		"preset": "react-native"
+	},
+	"rnpm": {
+		"assets": [
+			"assets/fonts"
+		]
 	}
 }

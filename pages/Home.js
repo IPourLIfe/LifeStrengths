@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
 import GroupEvents from './home/GroupEvents';
 import Notifications from './home/Notifications';
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator} from 'react-navigation';
+import CustomHeader from '../lib/react-components/CustomNavHeader';
 
 const HomeTab = TabNavigator({
         GroupEvents: {
@@ -26,23 +26,29 @@ const HomeTab = TabNavigator({
                 alignItems: 'center',
                 justifyContent: 'center'
             },
+            labelStyle: {
+                fontWeight: '500'
+            },
             style: {
-                paddingTop: 20,
-                height: 75,
+                paddingTop: 0,
                 backgroundColor: '#00BCD4'
             },
             indicatorStyle: {
-                backgroundColor: '#FFB100'
+                backgroundColor: '#FFB100',
+                height: 3
             }
         }
     });
 
-
-export default Home = () => (
-    <View style={{flex: 1}}>
-        <View style={{height: 40, width: '100%', backgroundColor: '#00BCD4', paddingTop: 20, paddingLeft: 20}}>
-            <Text style={{color: '#FFF', fontSize: 20, fontWeight: 'bold'}}>News</Text>
-        </View>
-        <HomeTab style={{flex: 1}}/>
-    </View>
+export default Home = StackNavigator(
+    {
+        HomeTabs: {
+            screen: HomeTab,
+            navigationOptions: props => ({
+                header: () => (<CustomHeader title='News' back={false} {...props}/>)
+            })
+        }
+    }, {
+        headerMode: 'float'
+    }
 );

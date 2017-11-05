@@ -10,6 +10,16 @@ import {View, Text} from 'react-native';
 import RootTabs from './RootTabs';
 import Login from './Login';
 import * as Authentication from './lib/Authentication';
+import {setTheme} from 'react-native-material-kit';
+
+setTheme({
+    checkboxStyle: {
+        fillColor: '#FFB100',
+        borderOnColor: '#FFB100',
+        borderOffColor: '#FFB100',
+        rippleColor: `rgba(255, 177, 0,.15)`,
+    }
+});
 
 export default class App extends Component<{}> {
     constructor(props) {
@@ -27,7 +37,7 @@ export default class App extends Component<{}> {
 
         const profile = await Authentication.getProfile();
 
-        if(profile) {
+        if (profile) {
             this.onLogin();
         }
     }

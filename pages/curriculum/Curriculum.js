@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, ScrollView, Image, TouchableOpacity, TouchableNativeFeedback, Platform} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import CreateButton from '../../lib/react-components/Button';
 
 const Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
@@ -16,6 +17,8 @@ const lessonTextStyle = {
     lineHeight: 36
 };
 
+const OpenAssignment = CreateButton('Assigned');
+
 export default class Curriculum extends Component<{}> {
     constructor(props) {
         super(props);
@@ -27,7 +30,7 @@ export default class Curriculum extends Component<{}> {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, backgroundColor: '#FFF'}}>
                 <ScrollView style={{flex: 1}}>
                     <View style={{padding: 40, paddingTop: 20, paddingBottom: 0, width: '100%'}}>
                         <View style={{
@@ -62,29 +65,7 @@ export default class Curriculum extends Component<{}> {
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Lesson 1</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 10,
-                            paddingRight: 10,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => {}}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Assigned</Text>
-                        </Touchable>
+                        <OpenAssignment onPress={() => this.props.navigation.navigate('LessonView', {lessonName: 'Lesson 1'})}/>
                     </View>
                     <View style={lessonViewStyle}>
                         <View style={{flex: 1}}>
@@ -106,29 +87,7 @@ export default class Curriculum extends Component<{}> {
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Lesson 2</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 10,
-                            paddingRight: 10,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => {}}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Assigned</Text>
-                        </Touchable>
+                        <OpenAssignment onPress={() => this.props.navigation.navigate('LessonView', {lessonName: 'Lesson 2'})}/>
                     </View>
                 </ScrollView>
             </View>

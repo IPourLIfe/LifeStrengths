@@ -17,7 +17,7 @@ const eventTimeStyle = {
 };
 
 export default GroupEvents = () => (
-    <ScrollView style={{flex: 1}}>
+    <ScrollView style={{flex: 1, backgroundColor: '#FFF'}}>
         <View style={{borderBottomColor: '#DDD', borderBottomWidth: 1, padding: 15, paddingLeft: 20}}>
             <Text style={{fontSize: 16, color: '#FFB100', fontWeight: 'bold'}}>THIS WEEK</Text>
         </View>

@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {View, Text, ScrollView, Image, TouchableOpacity, TouchableNativeFeedback, Platform, Alert} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import CreateButton from '../../lib/react-components/Button';
 
 const Touchable = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
 const lessonViewStyle = {
-    padding: 10,
+    padding: 20,
     flex: 1,
     flexDirection: 'row'
 };
@@ -15,6 +16,8 @@ const lessonTextStyle = {
     fontWeight: '500',
     lineHeight: 36
 };
+
+const DoneButton = CreateButton('Done');
 
 export default class Curriculum extends Component<{}> {
     constructor(props) {
@@ -41,7 +44,7 @@ export default class Curriculum extends Component<{}> {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, backgroundColor: '#FFF'}}>
                 <ScrollView style={{flex: 1}}>
                     <View style={{padding: 40, paddingTop: 20, paddingBottom: 0, width: '100%'}}>
                         <View style={{
@@ -94,57 +97,13 @@ export default class Curriculum extends Component<{}> {
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Buy a plane ticket</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 20,
-                            paddingRight: 20,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => this.completeTask('Book a hotel room')}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Done</Text>
-                        </Touchable>
+                        <DoneButton onPress={() => this.completeTask('Buy a plane ticket')}/>
                     </View>
                     <View style={lessonViewStyle}>
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Book a hotel room</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 20,
-                            paddingRight: 20,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => this.completeTask('Book a hotel room')}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Done</Text>
-                        </Touchable>
+                        <DoneButton onPress={() => this.completeTask('Book a hotel room')}/>
                     </View>
                     <View style={{borderBottomColor: '#DDD', borderBottomWidth: 1, padding: 10, paddingTop: 30}}>
                         <Text style={{fontSize: 16, color: '#00BCD4', fontWeight: '500'}}>GO ON A VACATION TO PANAMA</Text>
@@ -171,57 +130,13 @@ export default class Curriculum extends Component<{}> {
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Buy a plane ticket</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 20,
-                            paddingRight: 20,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => this.completeTask('Book a hotel room')}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Done</Text>
-                        </Touchable>
+                        <DoneButton onPress={() => this.completeTask('Buy a plane ticket')}/>
                     </View>
                     <View style={lessonViewStyle}>
                         <View style={{flex: 1}}>
                             <Text style={lessonTextStyle}>Book a hotel room</Text>
                         </View>
-                        <Touchable style={{
-                            margin: 'auto',
-                            alignSelf: 'center',
-                            backgroundColor: '#FFB100',
-                            alignContent: 'center',
-                            justifyContent: 'center',
-                            shadowColor: '#000',
-                            paddingLeft: 20,
-                            paddingRight: 20,
-                            shadowOffset: {
-                                width: 0,
-                                height: 2
-                            },
-                            shadowOpacity: 0.3
-                        }} onPress={() => this.completeTask('Book a hotel room')}>
-                            <Text style={{
-                                lineHeight: 36,
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                                color: '#FFF',
-                                textAlign: 'center'
-                            }}>Done</Text>
-                        </Touchable>
+                        <DoneButton onPress={() => this.completeTask('Book a hotel room')}/>
                     </View>
                 </ScrollView>
             </View>

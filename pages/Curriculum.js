@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {TabNavigator, StackNavigator} from 'react-navigation';
+import CustomHeader from '../lib/react-components/CustomNavHeader';
 import CurriculumScreen from './curriculum/Curriculum';
 import LifeMap from './curriculum/LifeMap';
-import {TabNavigator} from 'react-navigation';
+import LessonView from './curriculum/Lesson';
 
 const CurriculumTabs = TabNavigator({
         Curriculum: {
@@ -26,22 +27,35 @@ const CurriculumTabs = TabNavigator({
                 alignItems: 'center',
                 justifyContent: 'center'
             },
+            labelStyle: {
+                fontWeight: '500'
+            },
             style: {
-                paddingTop: 20,
-                height: 75,
+                paddingTop: 0,
                 backgroundColor: '#00BCD4'
             },
             indicatorStyle: {
-                backgroundColor: '#FFB100'
+                backgroundColor: '#FFB100',
+                height: 3
             }
         }
     });
 
-export default Curriculum = () => (
-    <View style={{flex: 1}}>
-        <View style={{height: 40, width: '100%', backgroundColor: '#00BCD4', paddingTop: 20, paddingLeft: 20}}>
-            <Text style={{color: '#FFF', fontSize: 20, fontWeight: 'bold'}}>Tasks</Text>
-        </View>
-        <CurriculumTabs style={{flex: 1}}/>
-    </View>
+export default Curriculum = StackNavigator(
+    {
+        CurriculumList: {
+            screen: CurriculumTabs,
+            navigationOptions: props => ({
+                header: () => (<CustomHeader title='Tasks' back={false} {...props}/>)
+            })
+        },
+        LessonView: {
+            screen: LessonView,
+            navigationOptions: props => ({
+                header: () => (<CustomHeader title={props.navigation.state.params['lessonName']} back={true} {...props}/>)
+            })
+        },
+    }, {
+        headerMode: 'float'
+    }
 );
