@@ -30,6 +30,9 @@ const HomeTab = TabNavigator({
                 paddingTop: 20,
                 height: 75,
                 backgroundColor: '#00BCD4'
+            },
+            indicatorStyle: {
+                backgroundColor: '#FFB100'
             }
         }
     });
