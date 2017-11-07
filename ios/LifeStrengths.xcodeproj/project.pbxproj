@@ -1596,6 +1596,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.hack4good.LifeStrengths;
 				PRODUCT_NAME = LifeStrengths;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1621,6 +1622,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.hack4good.LifeStrengths;
 				PRODUCT_NAME = LifeStrengths;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
