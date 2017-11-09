@@ -45,25 +45,28 @@ const ColoredFab = MKButton.coloredFab()
 const AddConvoButton = ColoredFab.withBackgroundColor('#FFB100').build();
 const GeneralButton = ColoredFab.withBackgroundColor('#FFF').build();
 
-
-export default Channels = () => (
-    <View style={{flex: 1}}>
-        <ScrollView style={{flex: 1}}>
-            <GeneralButton>
-                <MaterialIcons name='people-outline' size={26} style={channelButtonContentStyle}/>
-            </GeneralButton>
-            <View style={activeChannel}>
-                <Text style={channelButtonContentStyle}>LC</Text>
+export class Channels extends React.Component {
+    render() {
+        return (
+            <View style={{flex: 1}}>
+                <ScrollView style={{flex: 1}}>
+                    <GeneralButton>
+                        <MaterialIcons name='people-outline' size={26} style={channelButtonContentStyle}/>
+                    </GeneralButton>
+                    <View style={activeChannel}>
+                        <Text style={channelButtonContentStyle}>LC</Text>
+                    </View>
+                    <GeneralButton>
+                        <Text style={channelButtonContentStyle}>CC</Text>
+                    </GeneralButton>
+                    <AddConvoButton>
+                        <MaterialIcons name='add' size={26} style={{...channelButtonContentStyle, 'color': '#FFF'}}/>
+                    </AddConvoButton>
+                </ScrollView>
+                <GeneralButton>
+                    <MaterialCommunityIcons name='alert-decagram' size={26} style={{...channelButtonContentStyle, color: 'red'}} />
+                </GeneralButton>
             </View>
-            <GeneralButton>
-                <Text style={channelButtonContentStyle}>CC</Text>
-            </GeneralButton>
-            <AddConvoButton>
-                <MaterialIcons name='add' size={26} style={{...channelButtonContentStyle, 'color': '#FFF'}}/>
-            </AddConvoButton>
-        </ScrollView>
-        <GeneralButton>
-            <MaterialCommunityIcons name='alert-decagram' size={26} style={{...channelButtonContentStyle, color: 'red'}} />
-        </GeneralButton>
-    </View>
-);
+        );
+    }
+}
