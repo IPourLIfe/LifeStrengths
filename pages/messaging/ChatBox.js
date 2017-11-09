@@ -4,6 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import moment from 'moment';
 import FirebaseApp from '../../lib/Firebase';
+import 'firebase/firestore';
 import * as Authentication from '../../lib/Authentication';
 
 const mainGroupStyle = {flex: 1,
@@ -23,15 +24,31 @@ const nameHeaderStyle = {
     borderBottomColor: '#DDD'
 }
 
-const nameHeaderTextStyle = {color: '#FFB100', fontWeight: 'bold', fontSize: 20}
+const nameHeaderTextStyle = {
+    color: '#FFB100',
+    fontWeight: 'bold',
+    fontSize: 20
+}
 
-const messageScrollViewStyle = {flex: 1, flexGrow: 1}
+const messageScrollViewStyle = {
+    flex: 1,
+    flexGrow: 1
+}
 
-const sendMessageViewStyle = {height: 80, padding: 10, borderTopWidth: 1, borderTopColor: '#DDD'}
+const sendMessageViewStyle = {
+    height: 80,
+    padding: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#DDD'
+}
 
 const sendMessageTextInputStyle = {height: 40}
 
-const afterSendMessageSpacer = {backgroundColor: '#FFB100', height: 3, width: '100%'}
+const afterSendMessageSpacer = {
+    backgroundColor: '#FFB100',
+    height: 3,
+    width: '100%'
+}
 
 const messageGroup = {
     padding: 10
@@ -58,7 +75,8 @@ const sentMessageTimestamp = {
     textAlign: 'right'
 };
 
-const messageDb = FirebaseApp.database().ref('/community_messages');
+// Use Firestore for message database
+const messageFirestore = FirebaseApp.firestore().collection('community_messages')
 
 
 
@@ -67,8 +85,8 @@ export default class App extends Component<{}> {
         super();
         this.state = {
             messages: [],
-            profile: {sub: "asdjfkajsdf"},
-            typingText: "a"
+            profile: {sub: "temp profile id"},
+            typingText: "text to send"
         };
         this._renderItem = this._renderItem.bind(this)
     }
@@ -82,32 +100,38 @@ export default class App extends Component<{}> {
 
     // Fetch the last 20 messages from the Firebase DB and populates the messages state array
     dbFetch() {
-        messageDb.orderByChild("date").limitToLast(20).on('value', snap => {
+        var query = messageFirestore.orderBy('time', 'asc').limit(20)
+        var observer = query.onSnapshot(snap => {
             var newMessages = []
-            snap.forEach((child) => {
+            snap.forEach(child => {
+                var data = child.data()
                 newMessages.push({
-                    orig_user_id: child.val().orig_user_id,
-                    orig_user_name: child.val().orig_user_name,
-                    text: child.val().text,
-                    images: child.val().images,
-                    time: child.val().time,
-                    key: child.key
+                    orig_user_id: data.orig_user_id,
+                    orig_user_name: data.orig_user_name,
+                    text: data.text,
+                    images: data.images,
+                    time: data.time,
+                    key: child.id
                 })
-            });
+            })
             // set the state variable to the local array value
             this.setState({messages: newMessages});
             //  Scroll the list of messages to the bottom (not working  :(  )
             this.refs.scrollView.scrollToEnd();
+        }, err => {
+            console.log('Error getting messages: ${err}')
         })
     }
 
     // Send the user entered message
     handleEditComplete() {
-        var newID = FirebaseApp.database().ref('/community_messages').push({
+        var addDoc = messageFirestore.add({
             'orig_user_id': this.state.profile.sub,
             'orig_user_name': this.state.profile.name,
             'text': this.state.typingText,
             'time': Date.now()
+        }).then(ref => {
+            console.log('Added message with ID: ', ref.id)
         });
 
         // Clear the text input since the messsage has been sent
