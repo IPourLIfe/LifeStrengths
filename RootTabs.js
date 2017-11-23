@@ -3,7 +3,7 @@ import {TabNavigator, TabBarTop} from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './pages/Home';
-import Messaging from './pages/Messaging';
+import {Messaging} from './pages/Messaging';
 import Location from './pages/Location';
 import Curriculum from './pages/Curriculum';
 import Menu from './pages/Menu';

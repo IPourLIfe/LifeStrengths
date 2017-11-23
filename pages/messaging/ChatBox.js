@@ -97,14 +97,18 @@ const messageDb = FirebaseApp.database().ref('/messages');
 /      - count
 ****************************************/
 
+var row = 0
+
+
 export class ChatBox extends Component {
     constructor() {
         super();
         this.state = {
-            threadId: 0,
+            threadID: 1,
             messages: [],
             profile: {sub: "asdjfkajsdf"},
-            typingText: "a"
+            typingText: "a",
+            headerNames: ""
         };
         this._renderItem = this._renderItem.bind(this)
     }
@@ -113,12 +117,35 @@ export class ChatBox extends Component {
         const profile = await Authentication.getProfile();
         this.setState({profile: profile});
 
+        this.fetchHeaderNames()
+
+        // Update call to reflect the correct threadID based on left tab selection
+        // community messages are just a thread that has several members
+        // direct messages are a thread with just two members
         this.dbFetch()
+    }
+
+    // Find who is on this thread and set their names to the header
+    fetchHeaderNames() {
+        FirebaseApp.database().ref('/messages_participants').child(this.state.threadID).once('value', snap => {
+            var tempHeader = []
+            snap.forEach((child) => {
+                if (child.val() != this.state.profile.sub && child.val() != "userID1") {
+                    FirebaseApp.database().ref('/users').child(child.val()).once('value', userSnap => {
+
+                        // tempHeader.push(userSnap.name)
+                        tempHeader.push("Lisa")
+                        // set the state variable to the local array value
+                        this.setState({headerNames: tempHeader.join(", ")});
+                    })
+                }
+            });
+        })
     }
 
     // Fetch the last 20 messages from the Firebase DB and populates the messages state array
     dbFetch() {
-        messageDb.orderByChild("date").limitToLast(20).on('value', snap => {
+        messageDb.child(this.state.threadID).orderByChild("date").limitToLast(20).on('value', snap => {
             var newMessages = []
             snap.forEach((child) => {
                 newMessages.push({
@@ -139,7 +166,7 @@ export class ChatBox extends Component {
 
     // Send the user entered message
     handleEditComplete() {
-        var newID = FirebaseApp.database().ref('/community_messages').push({
+        var newID = messageDb.child(this.state.threadID).push({
             'orig_user_id': this.state.profile.sub,
             'orig_user_name': this.state.profile.name,
             'text': this.state.typingText,
@@ -166,7 +193,7 @@ export class ChatBox extends Component {
 
         // key is added to view below to prevent warning message during runtime
         return (
-            <View style={messageGroup} key={Math.random() * 1000000}>
+            <View style={messageGroup} key={row++}>
                 <Text style={messageStyle}>{message.text}</Text>
                 <Text style={messageTimestampStyle}>{dateString}</Text>
             </View>
@@ -174,18 +201,17 @@ export class ChatBox extends Component {
     }
 
     render() {
-        const {inProgress, messages, error} = this.state.messages;
-
+        const messageBlock = this.state.messages.map(this._renderItem)
         return (
             <View style={mainGroupStyle}>
                 <View style={nameHeaderStyle}>
-                    <Text style={nameHeaderTextStyle}>Lisa Carter</Text>
+                    <Text style={nameHeaderTextStyle}>{this.state.headerNames}</Text>
                 </View>
                 <ScrollView
                     onContentSizeChange={this.setScrollHeight}
                     ref="scrollView"
                     style={messageScrollViewStyle}>
-                    {this.state.messages.map(this._renderItem)}
+                    {messageBlock}
                 </ScrollView>
                 <View style={sendMessageViewStyle}>
                     <Text>Your Message</Text>

@@ -28,6 +28,8 @@ target 'LifeStrengths' do
 
   pod 'react-native-material-kit', :path => '../node_modules/react-native-material-kit'
 
+  pod 'react-native-fcm', :path => '../node_modules/react-native-fcm'
+
   target 'LifeStrengthsTests' do
     inherit! :search_paths
     # Pods for testing

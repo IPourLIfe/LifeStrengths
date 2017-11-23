@@ -36,18 +36,24 @@ const messagesChatBoxStyle = {
     marginLeft: 75,
     backgroundColor: '#FFF'
 }
-export default Messaging = () => (
-    <View style={mainMessageViewStyle}>
-        <View style={messagesHeaderStyle}>
-            <Text style={messagesHeaderTextStyle}>Messages</Text>
-        </View>
-        <View style={messagesContainerStyle}>
-            <View style={messagesChannelsStyle}>
-                <Channels/>
+
+export class Messaging extends Component {
+
+    render() {
+        return (
+            <View style={mainMessageViewStyle}>
+                <View style={messagesHeaderStyle}>
+                    <Text style={messagesHeaderTextStyle}>Messages</Text>
+                </View>
+                <View style={messagesContainerStyle}>
+                    <View style={messagesChannelsStyle}>
+                        <Channels/>
+                    </View>
+                    <View style={messagesChatBoxStyle}>
+                        <ChatBox/>
+                    </View>
+                </View>
             </View>
-            <View style={messagesChatBoxStyle}>
-                <ChatBox/>
-            </View>
-        </View>
-    </View>
-)
+        )
+    }
+}
