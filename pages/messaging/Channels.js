@@ -70,21 +70,25 @@ export class Channels extends React.Component {
 
     // Fetch the active threads for the current user
     dbFetchThreads() {
-        dbRef.ref('Users').child(this.state.userID).child('ActiveThreads').on('value', snap => {
+        dbRef.ref('users').child(this.state.userID).child('active-threads').on('value', snap => {
             var newThreads = []
-            snap.forEach((child) => {
-                var membersArr = child.val().members.slice()
-                membersArr.splice(membersArr.indexOf(this.state.userID),1)
-                newThreads.push({
-                    threadID: child.val().threadID,
-                    unreadCount: child.val().unreadCount,
-                    members: child.val().members
+            snap.forEach((threadsChild) => {
+                FirebaseApp.database().ref('/messages_participants').child(threadsChild.val()).once('value', partSnap => {
+                    partSnap.forEach((partChild) => {
+                        if (partChild.val() != this.state.profile.sub && partChild.val() != "userID1") {
+                            FirebaseApp.database().ref('/users').child(partChild.val()).once('value', partUserSnap => {
+                                newThreads.push({
+                                    threadID: partUserSnap.val().threadID,
+                                    unreadCount: partUserSnap.val().unreadCount,
+                                    members: partUserSnap.val().members
+                                })
+                                // uncomment below once users have threads assigned to them in DB
+                                // this.setState({threads: newThreads});
+                            })
+                        }
+                    });
                 })
             });
-            // set the state variable to the local array value
-
-            // uncomment below once users have threads assigned to them in DB
-            // this.setState({threads: newThreads});
         })
     }
 
