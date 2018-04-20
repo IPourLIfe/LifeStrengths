@@ -2,14 +2,18 @@
 
 ![Login Screen](https://github.com/IPourLIfe/LifeStrengths/blob/eb0891adb7ec39716d4998a0e3ed86443bd032f2/design/Login.png)
 
-LifeStrengths is a unique 12-month personal development system tailored to meet the individual needs of marginalized and at-risk youth by pairing participants with an on-staff LifeCoach. This App is designed to provide convenient access to an array of resources provided by I Pour Life and their Life Coaches and Community Coaches. 
+LifeStrengths is a unique 12-month personal development system tailored to
+meet the individual needs of marginalized and at-risk youth by pairing
+participants with an on-staff LifeCoach. This App is designed to provide
+convenient access to an array of resources provided by I Pour Life and their
+Life Coaches and Community Coaches.
 
 ## Core Features
 
 - Community Events
-- Real-time Notifications
-- Youth to Life Coach/Community Coach and I Pour Life group communication
-- Transportaiton information
+- Real-Time Notifications
+- Youth to Life Coach/Community Coach and I Pour Life Group Communication
+- Transportation Information
 - Location Services
 - Curriculum Access
 - Needs Wishlist
