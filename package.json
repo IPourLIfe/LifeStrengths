@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"postinstall": "node ./node_modules/patch-package/index.js",
 		"build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/LifeStrengths/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
 	},
 	"dependencies": {
@@ -19,7 +20,7 @@
 		"react-native-linear-gradient": "^2.3.0",
 		"react-native-maps": "^0.17.1",
 		"react-native-markdown-view": "^1.1.4",
-		"react-native-material-kit": "xinthink/react-native-material-kit",
+		"react-native-material-kit": "github:xinthink/react-native-material-kit",
 		"react-native-pages": "^0.6.1",
 		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.19"
@@ -28,6 +29,8 @@
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
 		"jest": "21.2.1",
+		"patch-package": "^5.1.1",
+		"postinstall-postinstall": "^1.0.0",
 		"react-test-renderer": "16.0.0"
 	},
 	"jest": {
@@ -37,5 +40,8 @@
 		"assets": [
 			"assets/fonts"
 		]
+	},
+	"resolutions": {
+		"**/fsevents": "1.2.3"
 	}
 }

@@ -8,6 +8,15 @@ participants with an on-staff LifeCoach. This App is designed to provide
 convenient access to an array of resources provided by I Pour Life and their
 Life Coaches and Community Coaches.
 
+## Project Setup
+
+1. Install Node 10.6.0 using [nvm install 10.6.0](https://github.com/creationix/nvm)
+2. Install CocoaPods: `gem install cocoapods`
+3. Install Yarn & React Native CLI: `npm i -g yarn react-native-cli`
+4. Install Dependencies: `yarn`
+5. Install CocoaPods: `pushd ios; pod install; popd`
+6. Build and Run: `react-native run-ios`
+
 ## Core Features
 
 - Community Events
