@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
+		"preinstall": "pushd ios; pod install; popd",
 		"postinstall": "node ./node_modules/patch-package/index.js",
 		"build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/LifeStrengths/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
 	},
