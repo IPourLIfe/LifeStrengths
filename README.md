@@ -14,8 +14,7 @@ Life Coaches and Community Coaches.
 2. Install CocoaPods: `gem install cocoapods`
 3. Install Yarn & React Native CLI: `npm i -g yarn react-native-cli`
 4. Install Dependencies: `yarn`
-5. Install CocoaPods: `pushd ios; pod install; popd`
-6. Build and Run: `react-native run-ios`
+5. Build and Run: `react-native run-ios`
 
 ## Core Features
 
